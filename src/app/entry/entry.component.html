@@ -1,0 +1,31 @@
+<div class="container">
+    <!-- log in & sign up form -->
+  <form  #entryForm="ngForm" (ngSubmit)="entryForm.valid && submit(entryForm.value)" novalidate>
+    <div class="form-group row justify-content-sm-center" [ngClass]="username.valid ? 'has-success' : ''">
+      <input class="form-control col-sm-6" type="text" name="username" [(ngModel)]="user.username" #username="ngModel" placeholder="name" required minlength="3">
+    </div>
+      <small class="alert alert-warning col-sm-6 offset-sm-3" *ngIf="(entryForm.submitted || username.touched) && username.invalid">
+        enter a valid username
+      </small>
+      <small class="alert alert-warning col-sm-6 offset-sm-3" *ngIf="nameExists">
+        the name "{{user.username}}" is already in use, choose another name
+      </small>
+    <div class="form-group row justify-content-sm-center" [ngClass]="password.valid ? 'has-success' : ''">
+      <input type="password" class="form-control form-control-danger col-sm-6" type="text" name="password" [(ngModel)]="user.password" #password="ngModel" placeholder="password" required minlength="3" maxlength="20">
+    </div>
+      <small class="alert alert-warning col-sm-6 offset-sm-3" *ngIf="password.invalid && (password.touched || entryForm.submitted)">
+        enter a valid password
+      </small>
+    <button class="btn btn-primary" type="submit" (click)="determineSubmit('login')" [disabled]="entryForm.invalid">
+      log in
+    </button>
+      <br>
+      <hr id="leftLine">
+    <span> or </span>
+      <hr id="rightLine">
+      <br>
+    <button class="btn btn-default" type="submit" (click)="determineSubmit('signup')" [disabled]="entryForm.invalid">
+      sign up
+    </button>
+</form>
+</div>

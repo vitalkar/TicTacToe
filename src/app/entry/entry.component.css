@@ -1,0 +1,24 @@
+.container{
+  height: 500px;
+}
+
+*{
+  font-family: 'Aldrich', sans-serif;
+}
+button{
+  margin: 15px auto;
+}
+hr{
+	margin-left:auto;
+	margin-right:auto;
+	width:40%;
+}
+#leftLine{
+  float: left;
+}
+#rightLine{
+  float: right;
+}
+small{
+  display: block;
+}

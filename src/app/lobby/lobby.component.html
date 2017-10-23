@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div class="playerInfo col-sm-9">
+      <div><b>Player:</b> {{player.name}}</div>
+      <div><b>Wins:</b> {{player.wins}}</div>
+    </div>
+    <button class="btn btn-info col-sm-3" type="button" data-toggle="modal" data-target="#myModal" (click)="getTopPlayersList()" >
+      high scores
+    </button>
+  </div>
+  <hr>
+  <div id="gameRoomsControl">
+    <div class="sectionHeader">
+      <h3>Create a game room</h3>
+    </div>
+    <form #newRoomForm="ngForm" (ngSubmit)="newRoomForm.valid && createRoom(newRoomForm)" novalidate>
+      <div class="form-group row">
+        <div class="col-sm-8 noPadnoMarg">
+          <input id="newRoomName" class="form-control" type="text" name="newRoomName" [(ngModel)]="roomName" #newRoomName="ngModel"  minlength="3" placeholder="Room Name" required>
+        </div>
+        <button id="createBtn" class="btn btn-success col-sm-4" type="button" type="submit" [disabled]="newRoomForm.invalid || duplicateRoomName">
+          Create
+        </button>
+      </div>
+        <small class="warning alert alert-warning" *ngIf="checkForDuplicity(newRoomName.value) && (newRoomName.dirty || newRoomName.touched)">
+          this name is already taken
+        </small>
+        <small class="warning alert alert-warning" *ngIf="newRoomName.invalid && (newRoomName.dirty || newRoomName.touched)">
+          name should contain at least 3 characters
+        </small>
+    </form>
+  </div>
+  <hr>
+  <div>
+   <div class="sectionHeader">
+    <h3>Rooms</h3>
+    <small>(Join a room by click)</small>
+    <div class="">
+     <span class="badge badge-success">available</span>
+     <span class="badge badge-danger">occupied</span>
+    </div>
+   </div>
+   <hr>
+  </div>
+  <div id="gameRoomsArea">
+      <ul id="roomsList">
+        <li class="room" *ngFor="let room of activeRooms" (click)="(room.players.length < 2) && joinRoom(room)" [ngClass]="room.players.length === 1 ? 'alert-success' : 'alert-danger'">
+          {{room.name}}
+        </li>
+      </ul>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">10 Top Players of:</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ol id="topPlayers">
+          <li class="topPlayer" *ngFor="let player of topPlayers">
+            {{player.username}} : {{player.wins}}
+          </li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button id="closeBtn" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

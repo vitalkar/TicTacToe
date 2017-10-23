@@ -1,0 +1,63 @@
+
+
+.container{
+  height:500px;
+}
+
+h3{
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+hr{
+  margin: 0;
+}
+
+#vs{
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.endOfGameHeader{
+  font-size: 20px;
+  /*margin:1% 13%;*/
+}
+
+#board{
+  /*display: table;*/
+  margin: auto auto;
+  padding: 0;
+  width: 400px;
+  height: 400px;
+}
+
+.cell{
+  /*display: table-cell;*/
+  /*box-sizing: border-box;*/
+  position: relative;
+  width: 31%;
+  height: 31%;
+  /*border: 1px solid #F0FFF0;*/
+  display: inline-block;
+  margin: auto 0.8% ;
+  /*background: #F0FFF0;*/
+  /*background: #B0C4DE;*/
+  background: rgb(220, 234, 234);
+
+}
+
+.shape{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  font-size:30px;
+  /*vertical-align: middle;*/
+  /*font-family: 'Aldrich', sans-serif;*/
+}
+
+#currentShape{
+  font-size: 18px;
+  color: orange;
+}

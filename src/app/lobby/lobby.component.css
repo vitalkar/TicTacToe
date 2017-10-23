@@ -1,0 +1,55 @@
+.container{
+  height:500px;
+}
+.room:hover{
+  color: black;
+}
+#roomsList{
+  list-style-type: none;
+  padding: 0;
+}
+#gameRoomsArea{
+  height: 220px;
+  overflow-x: auto;
+}
+#gameRooms{
+  overflow-x: auto;
+}
+button{
+  font-family: 'Aldrich', sans-serif;
+}
+.playerInfo{
+  text-align:left;
+}
+h3{
+  margin-bottom: 15px;
+  display: inline-block;
+}
+.sectionHeader{
+  text-align: left;
+}
+li{
+  text-align: left;
+  text-indent: 5px;
+  font-size: 18px;
+}
+.noMargeTop{
+  margin-top:0;
+}
+.noPadnoMarg{
+  margin: 0;
+  padding: 0;
+}
+.warning{
+  display: block;
+  text-align:left;
+}
+.playerData{
+  display: inline-block;
+}
+#closeBtn{
+  margin:auto;
+}
+#exampleModalLabel{
+  margin-left: 25px;
+}

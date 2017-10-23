@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+*{
+  font-family: 'Aldrich', sans-serif;
+}
+
+#header{
+  font-size: 38px;
+  letter-spacing:4px;
+  font-weight: 600;
+}
+
+#topLine{
+  margin-top:0;
+}
+
+.container{
+  /*text-align: center;*/
+  height: 100%;
+  width: 100%;
+  /*background-size: cover;*/
+  /*background-color: #B0C4DE;*/
+}
+
+body{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+html{
+  /*height: 100%;
+  width: 100%;
+  text-align: center;*/
+}

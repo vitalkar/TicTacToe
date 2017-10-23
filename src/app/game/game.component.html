@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>Room {{room.name}}</h3>
+  <hr>
+  <div class="row justify-content-around">
+    <div class="playerData col-sm-4">
+      {{player.name}}<small>(me)</small>
+      <span *ngIf="player.shape !== EMPTY">is {{this.player.shape}}</span>
+    </div>
+    <span id="vs">VS</span>
+    <div class="playerData col-sm-4">
+      {{opponent.name}}
+      <span *ngIf="opponent.shape !== EMPTY">is {{opponent.shape}}</span>
+    </div>
+  </div>
+  <div *ngIf="currentShape !== EMPTY">
+     <span id="currentShape">{{currentShape}}</span>'s turn!
+  </div>
+  <div id="board">
+    <div class="cell rounded" *ngFor="let cell of boardCells; let i = index; trackBy:trackByIndex;" (click)="move(i)">
+      <div class="shape">{{cell}}</div>
+    </div>
+    <div class="endOfGameHeader alert-success" *ngIf="winner.name !== EMPTY">
+      THE WINNER IS {{winner.name}}!
+    </div>
+    <div class="endOfGameHeader alert-warning" *ngIf="draw">
+      IT'S A DRAW!
+    </div>
+  </div>
+</div>
