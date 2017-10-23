@@ -19,6 +19,7 @@ export class LobbyComponent implements OnInit {
   player:Player;//player's details
   roomsSubscription:any;//
   room:Room;//current room
+  newRoomName:string;
   duplicateRoomName:boolean;
   topPlayers:Array<Player>;//array of top players
 
@@ -28,11 +29,13 @@ export class LobbyComponent implements OnInit {
   createRoom(roomData: NgForm){
       //construct a room obj based on user's values
       this.room = {
-        name : roomData.value.newRoomName,
+        // name : roomData.value.newRoomName,
+        name: this.newRoomName,
         players : []
       };
       this.dataService.createRoom(this.room);//send the room obj via dataService to server
       this.joinRoom(this.room);//join the new room
+      this.newRoomName = '';
   }
 
   //join to an active game room
@@ -70,6 +73,7 @@ export class LobbyComponent implements OnInit {
     this.duplicateRoomName = false;
     this.activeRooms = [];//init active rooms
     this.topPlayers = [];
+    this.newRoomName = '';
     this.getRoomsList();//pull active game rooms
     this.getTopPlayersList();
     this.routeData = this.activatedRoute.queryParams;

@@ -16,7 +16,7 @@
     <form #newRoomForm="ngForm" (ngSubmit)="newRoomForm.valid && createRoom(newRoomForm)" novalidate>
       <div class="form-group row">
         <div class="col-sm-8 noPadnoMarg">
-          <input id="newRoomName" class="form-control" type="text" name="newRoomName" [(ngModel)]="roomName" #newRoomName="ngModel"  minlength="3" placeholder="Room Name" required>
+          <input id="newRoomName" class="form-control" type="text" name="newRoomName" [(ngModel)]="newRoomName" #newRoomName="ngModel"  minlength="3" placeholder="Room Name" required>
         </div>
         <button id="createBtn" class="btn btn-success col-sm-4" type="button" type="submit" [disabled]="newRoomForm.invalid || duplicateRoomName">
           Create
